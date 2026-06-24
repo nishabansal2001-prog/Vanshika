@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fffcf5;
+  --foreground: #2d3748;
+}
+
+@theme {
+  --font-display: var(--font-fredoka), sans-serif;
+  --font-sans: var(--font-quicksand), sans-serif;
+
+  --color-brand-pink: #ff85a2;
+  --color-brand-blue: #4cc9f0;
+  --color-brand-purple: #b5179e;
+  --color-brand-lavender: #b79ced;
+  --color-brand-yellow: #ffcf56;
+  --color-brand-green: #4ad66d;
+
+  --color-bg-pink: #fff0f3;
+  --color-bg-blue: #ecf8ff;
+  --color-bg-purple: #f6f0ff;
+  --color-bg-yellow: #fffdf0;
+  --color-bg-green: #f0fdf4;
+  --color-bg-lavender: #f7f4ff;
+
+  --animate-float-slow: float 8s ease-in-out infinite;
+  --animate-float-medium: float 5s ease-in-out infinite;
+  --animate-float-fast: float 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 2s ease-in-out infinite;
+  --animate-draw: draw 1.5s ease-out forwards;
+  --animate-spin-slow: spin 20s linear infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(3deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+}
+
+/* Scrapbook UI Custom Styles */
+
+.scrapbook-paper {
+  background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+}
+
+.scrapbook-notebook-lines {
+  background-color: #fffdec;
+  background-image: linear-gradient(#e2e8f0 1px, transparent 1px);
+  background-size: 100% 2rem;
+  line-height: 2rem;
+}
+
+/* Polaroid Photo Style */
+.polaroid {
+  background: white;
+  padding: 1rem 1rem 2.5rem 1rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  transform: rotate(var(--rotation, 0deg));
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 10;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 10px 10px -5px rgba(0, 0, 0, 0.15);
+}
+
+/* Scrapbook Washi Tape */
+.washi-tape {
+  background: rgba(255, 133, 162, 0.6);
+  backdrop-filter: blur(1px);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  border-left: 3px dashed rgba(255, 255, 255, 0.5);
+  border-right: 3px dashed rgba(255, 255, 255, 0.5);
+  transform: rotate(var(--rotation, -3deg));
+}
+
+.washi-tape-blue {
+  background: rgba(76, 201, 240, 0.6);
+}
+
+.washi-tape-yellow {
+  background: rgba(255, 207, 86, 0.6);
+}
+
+.washi-tape-purple {
+  background: rgba(183, 156, 237, 0.6);
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fffcf5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff85a2;
+  border-radius: 9999px;
+  border: 2px solid #fffcf5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5c82;
+}
+
+/* Sparkle particles */
+.sparkle-slow {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
